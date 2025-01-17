@@ -12,9 +12,13 @@ RUN dotnet restore
 COPY Products .
 RUN dotnet publish -c release -o /app
 
+# Salvar o DataEntities.dll em um diretório público ou acessível ao frontend
+RUN mkdir -p /app/public && cp /app/DataEntities.dll /app/public/
+
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+EXPOSE 32001
+
 COPY --from=build /app .
+
 ENTRYPOINT ["dotnet", "Products.dll"]
