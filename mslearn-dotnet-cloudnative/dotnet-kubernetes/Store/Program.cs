@@ -30,6 +30,8 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
+// app.UseUrls("http://0.0.0.0:32000");
+
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 

@@ -16,4 +16,6 @@ app.UseStaticFiles();
 
 app.CreateDbIfNotExists();
 
+// app.UseUrls("http://0.0.0.0:32001"); 
+
 app.Run();
